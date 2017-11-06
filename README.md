@@ -58,11 +58,11 @@ The card value will be as follow :
 
 The players will have two commands. 
 
-# Play <number of cards> <card value>
+****Play <number of cards> <card value>****
   
- Ex : Play single 6 
+ 	Ex : Play single 6 
   
-# Pass
+****Pass****
 
-Ex : Pass
+	Ex : Pass
 
