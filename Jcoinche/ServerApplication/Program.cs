@@ -18,10 +18,10 @@ namespace ServerApplication
             //Start listening for incoming connections
             Connection.StartListening(ConnectionType.TCP, new System.Net.IPEndPoint(System.Net.IPAddress.Any, 0));
 
-            //Print out the IPs and ports we are now listening on
-            Console.WriteLine("Server listening for TCP connection on:");
-            foreach (System.Net.IPEndPoint localEndPoint in Connection.ExistingLocalListenEndPoints(ConnectionType.TCP))
-                Console.WriteLine("{0}:{1}", localEndPoint.Address, localEndPoint.Port);
+           //Print out the IPs and ports we are now listening on
+           Console.WriteLine("Server listening for TCP connection on:");
+           foreach (System.Net.IPEndPoint localEndPoint in Connection.ExistingLocalListenEndPoints(ConnectionType.TCP))
+              Console.WriteLine("{0}:{1}", localEndPoint.Address, localEndPoint.Port);
 
             //Let the user close the server
             Console.WriteLine("\nPress any key to close server.");
