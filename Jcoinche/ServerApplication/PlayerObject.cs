@@ -22,7 +22,7 @@ namespace ServerApplication
 
         [ProtoMember(3)]
         public Connection connect { get; private set; }
-        protected PlayerObject() { }
+       // protected PlayerObject() { }
 
         public PlayerObject(int _id, Connection _connect, List<string> _hand)
         {

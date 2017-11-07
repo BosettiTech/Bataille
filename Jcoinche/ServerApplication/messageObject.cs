@@ -9,12 +9,12 @@ using System.Threading.Tasks;
 namespace ServerApplication
 {
     [ProtoContract]
-    class messageObject
+   public class messageObject
     {
         [ProtoMember(1)]
         public string msg { get; private set; }
 
-        protected messageObject() { }
+      protected messageObject() { }
 
         public messageObject(string _msg)
         {

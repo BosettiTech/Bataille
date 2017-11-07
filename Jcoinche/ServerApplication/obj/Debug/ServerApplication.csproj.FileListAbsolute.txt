@@ -11,9 +11,6 @@ C:\Users\Martin Baud\source\repos\Jcoinche\ServerApplication\obj\Debug\ServerApp
 C:\Users\user\Documents\GitHub\Bataille\Jcoinche\ServerApplication\bin\Debug\ServerApplication.exe.config
 C:\Users\user\Documents\GitHub\Bataille\Jcoinche\ServerApplication\bin\Debug\ServerApplication.exe
 C:\Users\user\Documents\GitHub\Bataille\Jcoinche\ServerApplication\bin\Debug\ServerApplication.pdb
-C:\Users\user\Documents\GitHub\Bataille\Jcoinche\ServerApplication\bin\Debug\NetworkCommsDotNetComplete.pdb
-C:\Users\user\Documents\GitHub\Bataille\Jcoinche\ServerApplication\bin\Debug\NetworkCommsDotNetComplete.xml
-C:\Users\user\Documents\GitHub\Bataille\Jcoinche\ServerApplication\obj\Debug\ServerApplication.csprojResolveAssemblyReference.cache
 C:\Users\user\Documents\GitHub\Bataille\Jcoinche\ServerApplication\obj\Debug\ServerApplication.csproj.CoreCompileInputs.cache
 C:\Users\user\Documents\GitHub\Bataille\Jcoinche\ServerApplication\obj\Debug\ServerApplication.exe
 C:\Users\user\Documents\GitHub\Bataille\Jcoinche\ServerApplication\obj\Debug\ServerApplication.pdb

@@ -1,9 +1,7 @@
 ﻿using NetworkCommsDotNet;
 using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using ServerApplication;
 
 namespace ClientApplication
 {
@@ -18,17 +16,13 @@ namespace ClientApplication
             //Parse the necessary information out of the provided string
             string serverIP = serverInfo.Split(':').First();
             int serverPort = int.Parse(serverInfo.Split(':').Last());
-
             //Keep a loopcounter
             int loopCounter = 1;
             while (true)
             {
-                //Write some information to the console window
-                string messageToSend = "This is message #" + loopCounter;
-                Console.WriteLine("Sending message to server saying '" + messageToSend + "'");
-
-                //Send the message in a single line
-                NetworkComms.SendObject("Message", serverIP, serverPort, messageToSend);
+                ServerApplication.messageObject message = new ServerApplication.messageObject("salut");
+               
+                NetworkComms.SendObject("Message", serverIP, serverPort, message);
 
                 //Check if user wants to go around the loop
                 Console.WriteLine("\nPress q to quit or any other key to send another message.");
