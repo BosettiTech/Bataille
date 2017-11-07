@@ -14,3 +14,13 @@ C:\Users\user\Documents\GitHub\Bataille\Jcoinche\ServerApplication\bin\Debug\Ser
 C:\Users\user\Documents\GitHub\Bataille\Jcoinche\ServerApplication\obj\Debug\ServerApplication.csproj.CoreCompileInputs.cache
 C:\Users\user\Documents\GitHub\Bataille\Jcoinche\ServerApplication\obj\Debug\ServerApplication.exe
 C:\Users\user\Documents\GitHub\Bataille\Jcoinche\ServerApplication\obj\Debug\ServerApplication.pdb
+C:\Users\Martin Baud\Desktop\Bataille\Jcoinche\ServerApplication\bin\Debug\ServerApplication.exe.config
+C:\Users\Martin Baud\Desktop\Bataille\Jcoinche\ServerApplication\bin\Debug\ServerApplication.exe
+C:\Users\Martin Baud\Desktop\Bataille\Jcoinche\ServerApplication\bin\Debug\ServerApplication.pdb
+C:\Users\Martin Baud\Desktop\Bataille\Jcoinche\ServerApplication\bin\Debug\NetworkCommsDotNetComplete.dll
+C:\Users\Martin Baud\Desktop\Bataille\Jcoinche\ServerApplication\bin\Debug\NetworkCommsDotNetComplete.pdb
+C:\Users\Martin Baud\Desktop\Bataille\Jcoinche\ServerApplication\bin\Debug\NetworkCommsDotNetComplete.xml
+C:\Users\Martin Baud\Desktop\Bataille\Jcoinche\ServerApplication\obj\Debug\ServerApplication.csprojResolveAssemblyReference.cache
+C:\Users\Martin Baud\Desktop\Bataille\Jcoinche\ServerApplication\obj\Debug\ServerApplication.csproj.CoreCompileInputs.cache
+C:\Users\Martin Baud\Desktop\Bataille\Jcoinche\ServerApplication\obj\Debug\ServerApplication.exe
+C:\Users\Martin Baud\Desktop\Bataille\Jcoinche\ServerApplication\obj\Debug\ServerApplication.pdb
