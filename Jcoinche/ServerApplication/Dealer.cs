@@ -40,15 +40,8 @@ namespace ServerApplication
             Cards tmp = new Cards();
             tmp.color = suit;
             tmp.rank = rank;
-          //  Console.WriteLine(" TMP COLOR : " + tmp.color + " / TMP RANK : " + tmp.rank);
             deck.deck.Add(tmp);
             CardDistribution();
-            /*
-            for ( int i = 0; i < deck.deck.Count; i++)
-            {
-                Console.WriteLine(" Card number " + i + " : " + deck.deck.)
-            }
-            */
         }
      
         public void Shuffle()
@@ -66,12 +59,17 @@ namespace ServerApplication
         public void PrintCollection<T>(IEnumerable<T> col)
         {
             foreach (var item in col)
-                Console.WriteLine(item); // Replace this with your version of printing
+                Console.WriteLine(item);
         }
         public void CardDistribution()
         {
-           // int i = 0;
+            int i = 0;
             Shuffle();
+
+            while (i != 52)
+            {
+
+            }
             
         }
     }
