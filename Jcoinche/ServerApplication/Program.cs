@@ -12,7 +12,8 @@ namespace ServerApplication
     {
         private static int nb_client = 0;
         private static bool end = false;
-
+        private static bool once = true;
+        static Dealer Deal = new Dealer();
         static void Main(string[] args)
         {
             //Trigger the method PrintIncomingMessage when a packet of type 'Message' is received
@@ -30,7 +31,12 @@ namespace ServerApplication
             {
                 if (nb_client == 2)
                 {
-                    Console.WriteLine("Two Client Connected");
+                    if (once == true)
+                    {
+                        Console.WriteLine("Two Client Connected");
+                        Deal.CreateDeck();
+                        once = false;
+                    }
                 }
             }
 

@@ -15,20 +15,19 @@ namespace ServerApplication
     class PlayerObject
     {
         [ProtoMember(1)]
-        public int id { get; private set; }
+        public int Id { get; private set; }
 
         [ProtoMember(2)]
-        public List<string> hand { get; private set; }
+        public List<Cards> Hand { get; private set; }
 
         [ProtoMember(3)]
-        public Connection connect { get; private set; }
+        public Connection Connect { get; private set; }
        // protected PlayerObject() { }
-
-        public PlayerObject(int _id, Connection _connect, List<string> _hand)
+        public PlayerObject(int _id, Connection _connect, List<Cards> _hand)
         {
-            this.id = _id;
-            this.connect = _connect;
-            this.hand = _hand;
+            this.Id = _id;
+            this.Connect = _connect;
+            this.Hand = _hand;
         }
     }
 }

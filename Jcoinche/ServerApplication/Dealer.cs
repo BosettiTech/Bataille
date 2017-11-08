@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ServerApplication
 {
@@ -12,56 +9,70 @@ namespace ServerApplication
         Deck deck = new Deck();
         private static Random rng = new Random();
 
-        public void createDeck()
+        public void CreateDeck()
         {
             deck.deck = new List<Cards>();
-            createColor("Heart");
-            createColor("Club");
-            createColor("Diamond");
-            createColor("Spades");
+            CreateColor("Heart");
+            CreateColor("Club");
+            CreateColor("Diamond");
+            CreateColor("Spades");
         }
 
-        public void createColor(String suit)
+        public void CreateColor(String suit)
         {
-            createValue(suit, "two");
-            createValue(suit, "three");
-            createValue(suit, "four");
-            createValue(suit, "five");
-            createValue(suit, "six");
-            createValue(suit, "seven");
-            createValue(suit, "eight");
-            createValue(suit, "nine");
-            createValue(suit, "ten");
-            createValue(suit, "jack");
-            createValue(suit, "queen");
-            createValue(suit, "king");
-            createValue(suit, "ace");
+            CreateValue(suit, "two");
+            CreateValue(suit, "three");
+            CreateValue(suit, "four");
+            CreateValue(suit, "five");
+            CreateValue(suit, "six");
+            CreateValue(suit, "seven");
+            CreateValue(suit, "eight");
+            CreateValue(suit, "nine");
+            CreateValue(suit, "ten");
+            CreateValue(suit, "jack");
+            CreateValue(suit, "queen");
+            CreateValue(suit, "king");
+            CreateValue(suit, "ace");
         }
 
-        public void createValue(string suit, string rank)
+        public void CreateValue(string suit, string rank)
         {
             Cards tmp = new Cards();
             tmp.color = suit;
             tmp.rank = rank;
+          //  Console.WriteLine(" TMP COLOR : " + tmp.color + " / TMP RANK : " + tmp.rank);
             deck.deck.Add(tmp);
+            CardDistribution();
+            /*
+            for ( int i = 0; i < deck.deck.Count; i++)
+            {
+                Console.WriteLine(" Card number " + i + " : " + deck.deck.)
+            }
+            */
         }
-        /*
+     
         public void Shuffle()
         {
+            Cards temp = new Cards();
             for (int i = deck.deck.Count - 1; i > 0; i--)
             {
-                int j = random.Next(i + 1);
-                Cards temp = deck.deck[i];
+                int j = rng.Next(i + 1);
+                temp = deck.deck[i];
                 deck.deck[i] = deck.deck[j];
                 deck.deck[j] = temp;
+                PrintCollection(deck.deck);
             }
+        }
+        public void PrintCollection<T>(IEnumerable<T> col)
+        {
+            foreach (var item in col)
+                Console.WriteLine(item); // Replace this with your version of printing
         }
         public void CardDistribution()
         {
-            int i = 0;
+           // int i = 0;
             Shuffle();
-
+            
         }
-        */
     }
 }

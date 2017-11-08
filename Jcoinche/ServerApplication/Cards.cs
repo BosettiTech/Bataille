@@ -10,5 +10,10 @@ namespace ServerApplication
     {
         public string color;
         public string rank;
+
+        public override string ToString()
+        {
+            return String.Format("{0} of {1};", rank, color);
+        }
     }
 }
