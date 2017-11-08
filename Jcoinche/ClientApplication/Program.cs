@@ -2,6 +2,7 @@
 using System;
 using System.Linq;
 using ServerApplication;
+using NetworkCommsDotNet.Connections;
 
 namespace ClientApplication
 {
@@ -9,6 +10,7 @@ namespace ClientApplication
     {
         static void Main(string[] args)
         {
+            NetworkComms.AppendGlobalIncomingPacketHandler<messageObject>("Message", PrintIncomingMessage);
             //Request server IP and port number
             Console.WriteLine("Please enter the server IP and port in the format 192.168.0.1:10000 and press return:");
             string serverInfo = Console.ReadLine();
@@ -32,6 +34,10 @@ namespace ClientApplication
 
             //We have used comms so we make sure to call shutdown
             NetworkComms.Shutdown();
+        }
+        private static void PrintIncomingMessage(PacketHeader header, Connection connection, messageObject message)
+        {
+            Console.WriteLine(message.msg);
         }
     }
 }
