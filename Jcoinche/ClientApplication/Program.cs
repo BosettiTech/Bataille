@@ -22,7 +22,7 @@ namespace ClientApplication
             int loopCounter = 1;
             while (true)
             {
-                ServerApplication.messageObject message = new ServerApplication.messageObject("Connected");
+                messageObject message = new messageObject("Connected");
                
                 NetworkComms.SendObject("Message", serverIP, serverPort, message);
 

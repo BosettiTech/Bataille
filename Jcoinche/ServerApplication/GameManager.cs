@@ -14,7 +14,7 @@ namespace ServerApplication
 
         public void startGame()
         {
-            ServerApplication.messageObject message = new ServerApplication.messageObject("Hello");
+            messageObject message = new messageObject("Hello");
 
             playerOne.Connect.SendObject("Message", message);
         }

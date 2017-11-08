@@ -16,7 +16,7 @@ namespace ServerApplication
         static Connection _connectionOne;
         static Connection _connectionTwo;
         static Dealer Deal = new Dealer();
-
+        static Hand hand = new Hand();
         static void Main(string[] args)
         {
             //Trigger the method PrintIncomingMessage when a packet of type 'Message' is received
@@ -36,11 +36,13 @@ namespace ServerApplication
                 {
                     if (once == true)
                     {
+                        once = false;
                         Console.WriteLine("Two Client Connected");
                         Deal.CreateDeck();
-                        once = false;
-                        PlayerObject playerOne = new PlayerObject(/*need Hand*/1, _connectionOne);
-                        PlayerObject playerTwo = new PlayerObject(/*need hand*/2, _connectionTwo);
+                        Deal.CardDistribution(hand.HandPlayer1, hand.HandPlayer2);
+
+                        PlayerObject playerOne = new PlayerObject(1, _connectionOne,hand.HandPlayer1);
+                        PlayerObject playerTwo = new PlayerObject(2, _connectionTwo,hand.HandPlayer2);
 
                         GameManager gm = new GameManager(playerOne, playerTwo);
 

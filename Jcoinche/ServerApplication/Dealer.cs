@@ -41,7 +41,8 @@ namespace ServerApplication
             tmp.color = suit;
             tmp.rank = rank;
             deck.deck.Add(tmp);
-            CardDistribution();
+            Shuffle();
+           // CardDistribution();
         }
      
         public void Shuffle()
@@ -53,7 +54,7 @@ namespace ServerApplication
                 temp = deck.deck[i];
                 deck.deck[i] = deck.deck[j];
                 deck.deck[j] = temp;
-                PrintCollection(deck.deck);
+                //PrintCollection(deck.deck);
             }
         }
         public void PrintCollection<T>(IEnumerable<T> col)
@@ -61,16 +62,27 @@ namespace ServerApplication
             foreach (var item in col)
                 Console.WriteLine(item);
         }
-        public void CardDistribution()
+        public void CardDistribution(List<Cards> p1, List<Cards> p2)
         {
             int i = 0;
-            Shuffle();
-
-            while (i != 52)
+           
+            while (i <= deck.deck.Count - 1)
             {
-
+                if (i % 2 == 0)
+                {
+                    p1.Add(deck.deck[i]);
+                   
+                }
+                else
+                {
+                    p2.Add(deck.deck[i]);
+                }
+                i++;
             }
-            
+            Console.WriteLine("JOUEUR 1 CARTE : ");
+            PrintCollection(p1);
+            Console.WriteLine("JOUEUR 2 CARTE : ");
+            PrintCollection(p2);
         }
     }
 }

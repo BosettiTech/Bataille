@@ -8,7 +8,7 @@ namespace ServerApplication
 {
     class Hand
     {
-        List<Cards> HandPlayer1;
-        List<Cards> HandPlayer2;
+       public List<Cards> HandPlayer1 = new List<Cards>();
+       public List<Cards> HandPlayer2 = new List<Cards>();
     }
 }
