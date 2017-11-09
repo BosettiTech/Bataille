@@ -31,40 +31,34 @@ namespace ServerApplication
             PlayerObject _player2;
             int i = 0;
             int j = 0;
+            int even = tas.Count;
             string first;
             string second;
-            if (tas.Count == 2)
+
+            if (even % 2 == 0)
             {
-                first = tas[0].ToString().Split(' ').First();
-                second = tas[1].ToString().Split(' ').First();
+                first = tas[even - 2].ToString().Split(' ').First();
+                second = tas[even - 1].ToString().Split(' ').First();
 
                 i = Bataille(first);
                 j = Bataille(second);
-                Console.WriteLine(first + " //// " + second);
-                Console.WriteLine(i + " //// " + j);
-            }
-            if(tas.Count == 4)
-            {
-                first = tas[2].ToString().Split(' ').First();
-                second = tas[3].ToString().Split(' ').First();
-
-                i = Bataille(first);
-                j = Bataille(second);
-                Console.WriteLine(first + " //// " + second);
-                Console.WriteLine(i + " //// " + j);
             }
 
             if (i > j)
             {
+                int tmp = tas.Count;
                 p1.RemoveAt(0);
                 p2.RemoveAt(0);
+
                 for(int cpt = 0; cpt < tas.Count; cpt++)
                 {
                     p1.Add(tas[cpt]);
                     tas.RemoveAt(cpt);
                 }
-                Console.WriteLine("I > J");
-
+                while(tas.Count != 0)
+                {
+                    tas.RemoveAt(0);
+                }
                 _player1 = new PlayerObject(20, p1, "You won this round");
                 _player2 = new PlayerObject(20, p2, "You lost this round");
                 c1.SendObject("Message", _player1);
@@ -74,14 +68,14 @@ namespace ServerApplication
             {
                 p2.RemoveAt(0);
                 p1.RemoveAt(0);
-                Console.WriteLine("I = J");
-                _player1 = new PlayerObject(20, p1, "TIE ! ITS WAR NIGGA : Play another card");
-                _player2 = new PlayerObject(20, p2, "TIE ! ITS WAR NIGGA : Play another card");
+                _player1 = new PlayerObject(20, p1, "TIE ! ITS WAR : Play another card");
+                _player2 = new PlayerObject(20, p2, "TIE ! ITS WAR : Play another card");
                 c1.SendObject("Message", _player1);
                 c2.SendObject("Message", _player2);
             }
             else if (i < j)
             {
+                int tmp = tas.Count;
                 p1.RemoveAt(0);
                 p2.RemoveAt(0);
                 for (int cpt = 0; cpt < tas.Count; cpt++)
@@ -89,7 +83,10 @@ namespace ServerApplication
                     p2.Add(tas[cpt]);
                     tas.RemoveAt(cpt);
                 }
-                Console.WriteLine("I < J");
+                while (tas.Count != 0)
+                {
+                    tas.RemoveAt(0);
+                }
                 _player1 = new PlayerObject(20, p1, "You lost this round");
                 _player2 = new PlayerObject(20, p2, "You won this round");
                 c1.SendObject("Message", _player1);
@@ -139,7 +136,7 @@ namespace ServerApplication
                 case "king":
                     i = 13;
                     break;
-                case "as":
+                case "ace":
                     i = 14;
                     break;
             }

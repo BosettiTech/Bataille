@@ -36,25 +36,28 @@ namespace ServerApplication
                     if (once == true)
                     {
                         once = false;
-                        Console.WriteLine("Two Client Connected");
                         Deal.CreateDeck();
                         Deal.CardDistribution(hand.HandPlayer1, hand.HandPlayer2);
 
-                        PlayerObject playerOne = new PlayerObject(1, hand.HandPlayer1,"Test");
-                        PlayerObject playerTwo = new PlayerObject(2,hand.HandPlayer2,"Salut");
+                        PlayerObject playerOne = new PlayerObject(1, hand.HandPlayer1,"Salut joueur 1 !");
+                        PlayerObject playerTwo = new PlayerObject(2,hand.HandPlayer2,"Salut joueur 2 !");
                       
                         GameManager gm = new GameManager(playerOne, playerTwo,fnatic.connectOne,fnatic.connectTwo);
 
                         gm.startGame();
-                        while (player1 != true || player2 != true)
+                        while(end != true)
                         {
-                            int i = 0;
-                            i++;
-                        }
-                        if (player1 == true && player2 == true)
-                        {
-                            gm.CompareCards(hand.Tas,_hand.HandPlayer1,_hand.HandPlayer2);
-                            player1 = false;
+                            while (player1 != true || player2 != true)
+                            {
+                                int i = 0;
+                                i++;
+                            }
+                            if (player1 == true && player2 == true)
+                            {
+                                gm.CompareCards(hand.Tas, _hand.HandPlayer1, _hand.HandPlayer2);
+                                player1 = false;
+
+                            }
                             player2 = false;
                         }
                     }
@@ -95,14 +98,24 @@ namespace ServerApplication
             {
                 if (Equals(player.msg, "Play from player1") == true)
                 {
-                    Console.WriteLine("RECEIVED P1");
+                    if (player.Hand.Count == 0)
+                    {
+                        PlayerObject playerTmp = new PlayerObject(0, hand.HandPlayer1, "You have no card left, you lost");
+                        fnatic.connectOne.SendObject("Message", playerTmp);
+                        end = true;
+                    }
                     hand.Tas.Add(player.Hand[0]);
                     _hand.HandPlayer1 = player.Hand;
                     player1 = true;  
                 }
                 if (Equals(player.msg, "Play from player2") == true)
                 {
-                    Console.WriteLine("RECEIVED P2");
+                    if (player.Hand.Count == 0)
+                    {
+                        PlayerObject playerTwo = new PlayerObject(0, hand.HandPlayer2, "You have no card left, you lost");
+                        fnatic.connectTwo.SendObject("Message", playerTwo);
+                        end = true;
+                    }
                     hand.Tas.Add(player.Hand[0]);
                     _hand.HandPlayer2 = player.Hand;
                     player2 = true;
