@@ -13,19 +13,15 @@ namespace ServerApplication
         private static int nb_client = 0;
         private static bool end = false;
         private static bool once = true;
-        static Connection _connectionOne;
-        static Connection _connectionTwo;
         static Dealer Deal = new Dealer();
         static Hand hand = new Hand();
+        static Handler fnatic = new Handler();
         static void Main(string[] args)
         {
-            //Trigger the method PrintIncomingMessage when a packet of type 'Message' is received
-            //We expect the incoming object to be a string which we state explicitly by using <string>
-            NetworkComms.AppendGlobalIncomingPacketHandler<messageObject>("Message", ConnectionHandler);
-            //Start listening for incoming connections
+            NetworkComms.AppendGlobalIncomingPacketHandler<PlayerObject>("Message", ConnectionHandler);
+
             Connection.StartListening(ConnectionType.TCP, new System.Net.IPEndPoint(System.Net.IPAddress.Any, 0));
 
-           //Print out the IPs and ports we are now listening on
            Console.WriteLine("Server listening for TCP connection on:");
            foreach (System.Net.IPEndPoint localEndPoint in Connection.ExistingLocalListenEndPoints(ConnectionType.TCP))
             Console.WriteLine("{0}:{1}", localEndPoint.Address, localEndPoint.Port);
@@ -41,39 +37,33 @@ namespace ServerApplication
                         Deal.CreateDeck();
                         Deal.CardDistribution(hand.HandPlayer1, hand.HandPlayer2);
 
-                        PlayerObject playerOne = new PlayerObject(1, _connectionOne,hand.HandPlayer1);
-                        PlayerObject playerTwo = new PlayerObject(2, _connectionTwo,hand.HandPlayer2);
-
-                        GameManager gm = new GameManager(playerOne, playerTwo);
+                        PlayerObject playerOne = new PlayerObject(1, hand.HandPlayer1,"Test");
+                        PlayerObject playerTwo = new PlayerObject(2,hand.HandPlayer2,"Salut");
+                      
+                        GameManager gm = new GameManager(playerOne, playerTwo,fnatic.connectOne,fnatic.connectTwo);
 
                         gm.startGame();
                     }
                 }
             }
-
-            //Let the user close the server
             Console.WriteLine("\nPress any key to close server.");
             Console.ReadKey(true);
 
             NetworkComms.Shutdown();
         }
 
-        private static void ConnectionHandler(PacketHeader header, Connection connection, messageObject message)
+        private static void ConnectionHandler(PacketHeader header, Connection connection, PlayerObject player)
         {
-            if (Equals(message.msg, "Connected") == true)
+            if (Equals(player.msg, "Connected") == true)
                 nb_client++;
             if (nb_client == 1)
             {
-                _connectionOne = connection;
+                fnatic.connectOne = connection;
             }
             if (nb_client == 2)
             {
-                _connectionTwo = connection;
+                fnatic.connectTwo = connection;
             }
         }
-        /*private static void PrintIncomingMessage(PacketHeader header, Connection connection, messageObject message)
-        {
-            Console.WriteLine("\nA message was received from " + connection.ToString() + " which said '" + message.msg + "'.");
-        }*/
     }
 }

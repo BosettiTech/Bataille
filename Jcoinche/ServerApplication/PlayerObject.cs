@@ -6,28 +6,25 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-
-//    Class serialize pour envoyer entre server et client 
-
 namespace ServerApplication
 {
     [ProtoContract]
-    class PlayerObject
+    public class PlayerObject
     {
         [ProtoMember(1)]
         public int Id { get; private set; }
 
         [ProtoMember(2)]
-        public List<Cards> Hand { get; private set; }
+       public List<Cards> Hand { get; private set; }
 
         [ProtoMember(3)]
-        public Connection Connect { get; private set; }
-       // protected PlayerObject() { }
-        public PlayerObject(int _id, Connection _connect, List<Cards> _hand)
+        public string msg { get; private set; }
+        public PlayerObject() { }
+        public PlayerObject(int _id,List<Cards> _hand,string _msg)
         {
             this.Id = _id;
-            this.Connect = _connect;
             this.Hand = _hand;
+            this.msg = _msg;
         }
     }
 }

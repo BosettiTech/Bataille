@@ -3,7 +3,6 @@ using System.Collections.Generic;
 
 namespace ServerApplication
 {
-    // Le Dealer s'occupe de créer les cartes et de les distribuer
     class Dealer
     {
         Deck deck = new Deck();
@@ -42,7 +41,6 @@ namespace ServerApplication
             tmp.rank = rank;
             deck.deck.Add(tmp);
             Shuffle();
-           // CardDistribution();
         }
      
         public void Shuffle()
@@ -54,7 +52,6 @@ namespace ServerApplication
                 temp = deck.deck[i];
                 deck.deck[i] = deck.deck[j];
                 deck.deck[j] = temp;
-                //PrintCollection(deck.deck);
             }
         }
         public void PrintCollection<T>(IEnumerable<T> col)
