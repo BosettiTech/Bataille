@@ -10,5 +10,6 @@ namespace ServerApplication
     {
        public List<Cards> HandPlayer1 = new List<Cards>();
        public List<Cards> HandPlayer2 = new List<Cards>();
+       public List<Cards> Tas = new List<Cards>();
     }
 }

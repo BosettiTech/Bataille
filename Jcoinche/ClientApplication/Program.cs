@@ -11,6 +11,7 @@ namespace ClientApplication
     {
         static List<Cards> tmp = new List<Cards>();
         static ServerInfo serv = new ServerInfo();
+        static Hand _hand = new Hand();
         static private bool end = false;
         static private bool once = false;
         static int PlayerId;
@@ -35,21 +36,25 @@ namespace ClientApplication
                 }
                 if (Equals(Console.ReadLine(), "PLAY") == true)
                 {
-                    PlayerObject message = new PlayerObject(20, tmp, "Play from player "+PlayerId);
+                    PlayerObject message = new PlayerObject(20, tmp, "Play from player"+PlayerId);
                     Console.WriteLine(PlayerId);
                     NetworkComms.SendObject("Message", serv.serverIp, serv.serverPort, message);
                     Console.WriteLine("ok");
                 }
-
-                Console.WriteLine("\nPress q to quit or any other key to send another message.");
-                if (Console.ReadKey(true).Key == ConsoleKey.Q) break;
-                else loopCounter++;
             }
+            /*
+            Console.WriteLine("\nPress q to quit or any other key to send another message.");
+            if (Console.ReadKey(true).Key == ConsoleKey.Q)
+            {
+                Console.WriteLine("Quit");
+            }
+            else loopCounter++;
+            */
             NetworkComms.Shutdown();
         }
         private static void PrintIncomingMessage(PacketHeader header, Connection connection, PlayerObject player)
         {
-            Hand _hand = new Hand();
+            
             if (Equals(player.Id, 1) == true)
             {
                 Console.WriteLine(player.msg);
