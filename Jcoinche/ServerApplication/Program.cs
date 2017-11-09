@@ -13,6 +13,7 @@ namespace ServerApplication
         private static int nb_client = 0;
         private static bool end = false;
         private static bool once = true;
+        private static bool receiving = false;
         static Dealer Deal = new Dealer();
         static Hand hand = new Hand();
         static Handler fnatic = new Handler();
@@ -63,6 +64,19 @@ namespace ServerApplication
             if (nb_client == 2)
             {
                 fnatic.connectTwo = connection;
+            }
+            if (Equals(player.Id, 10) == true)
+            {
+                if (Equals(player.msg, "Hand received from player1") == true)
+                {
+                    PlayerObject playerTmp = new PlayerObject(11, hand.HandPlayer1, "The game can begin, anytime it's your turn to play just write PLAY");
+                    fnatic.connectOne.SendObject("Message", playerTmp);
+                }
+                if (Equals(player.msg, "Hand received from player2") == true)
+                {
+                    PlayerObject player2 = new PlayerObject(12, hand.HandPlayer2, "The game can begin, anytime it's your turn to play just write PLAY");
+                    fnatic.connectTwo.SendObject("Message", player2);
+                }      
             }
         }
     }

@@ -1,9 +1,4 @@
 ﻿using NetworkCommsDotNet.Connections;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ServerApplication
 {
@@ -13,11 +8,13 @@ namespace ServerApplication
         public PlayerObject playerTwo;
         public Connection c1;
         public Connection c2;
+
         public void startGame()
         {
             c1.SendObject("Message", playerOne);
             c2.SendObject("Message", playerTwo);
         }
+
         public GameManager(PlayerObject _playerOne, PlayerObject _playerTwo, Connection _c1, Connection _c2)
         {
             this.playerOne = _playerOne;

@@ -43,6 +43,7 @@ namespace ServerApplication
             Shuffle();
         }
      
+
         public void Shuffle()
         {
             Cards temp = new Cards();
@@ -54,11 +55,7 @@ namespace ServerApplication
                 deck.deck[j] = temp;
             }
         }
-        public void PrintCollection<T>(IEnumerable<T> col)
-        {
-            foreach (var item in col)
-                Console.WriteLine(item);
-        }
+
         public void CardDistribution(List<Cards> p1, List<Cards> p2)
         {
             int i = 0;
@@ -76,10 +73,6 @@ namespace ServerApplication
                 }
                 i++;
             }
-            Console.WriteLine("JOUEUR 1 CARTE : ");
-            PrintCollection(p1);
-            Console.WriteLine("JOUEUR 2 CARTE : ");
-            PrintCollection(p2);
         }
     }
 }
