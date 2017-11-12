@@ -1,4 +1,4 @@
-### The President Game
+### The War Game
 
 # What is this project ? 
 
@@ -22,7 +22,7 @@ Most descriptions of War are unclear about what happens if a player runs out of 
 
 We are going to go with Networkcomms for .net for the connection between multiple clients and a server.
 
-In the repositor, they are two branches, ****Master*** and ****dev***.
+In the repositor, they are two branches, **Master** and **dev**.
 
 All modifications must be pushed on dev without adding unnecessary files. Which means, if you work on two files, don't git add --all.
 
@@ -51,3 +51,5 @@ The players will have only one command.
 ****PLAY****
 
 	Ex : PLAY
+
+With this command, you'll see what card is being played and, after both players played, the winner/loser will be announced. You'll need to enter the commande "PLAY" every turn of the game until the end. 
